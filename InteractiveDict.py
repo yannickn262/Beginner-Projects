@@ -15,10 +15,15 @@ def findWord(word):
         print("Did you mean " + str(closeMatches) + "?")
         userErrorInput = input("Type Y for Yes and N for No: ")
         userErrorInput = userErrorInput.lower()
-        if userErrorInput == "y":
+        if userErrorInput == "y" or userErrorInput == "yes":
             return data[closeMatches]
         #prints the word that closest matches the invalid user input
     else:
         print("Not a valid word!")
 
-print(findWord(userWord))
+output = findWord(userWord)
+if type(output) == list:
+    for item in output:
+        print(item)
+else:
+    print(output)
