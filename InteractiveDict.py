@@ -9,12 +9,16 @@ def findWord(word):
     word = word.lower()
     if word in data:
         return data[word]
-    elif len 
-        #prints the word that closest matches the invalid user input
+        #if there is more than one close match
+    elif len(get_close_matches(word, data.keys())) > 0:
         closeMatches = get_close_matches(word, data.keys())[0]
-        if(closeMatches != "")
-            print("Did you mean " + str(closeMatches) + "?")
+        print("Did you mean " + str(closeMatches) + "?")
+        userErrorInput = input("Type Y for Yes and N for No: ")
+        userErrorInput = userErrorInput.lower()
+        if userErrorInput == "y":
+            return data[closeMatches]
+        #prints the word that closest matches the invalid user input
     else:
-        print("Not a valid word, try again! ")
+        print("Not a valid word!")
 
 print(findWord(userWord))
