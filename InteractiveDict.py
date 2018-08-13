@@ -7,6 +7,9 @@ userWord = input("Enter a word to be defined: ")
 def findWord(word):
     #creates case insensitivity
     word = word.lower()
+    properNoun = word.capitalize()
+    if properNoun in data:
+        return data[properNoun]
     if word in data:
         return data[word]
         #if there is more than one close match
