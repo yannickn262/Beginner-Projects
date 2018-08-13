@@ -7,7 +7,10 @@ userWord = input("Enter a word to be defined: ")
 def findWord(word):
     #creates case insensitivity
     word = word.lower()
+    acronym = word.upper()
     properNoun = word.capitalize()
+    if acronym in data:
+        return data[acronym]
     if properNoun in data:
         return data[properNoun]
     if word in data:
