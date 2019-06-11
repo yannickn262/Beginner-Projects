@@ -33,7 +33,7 @@ def search(title = "", author = "", year = "", isbn = ""):
 def delete(id):
     conn = sqlite3.connect("books.db")
     cur = conn.cursor()
-    cur.execute("DELETE * FROM book WHERE id = ?", (id,))
+    cur.execute("DELETE FROM book WHERE id = ?", (id,))
     conn.commit()
     conn.close()
 
@@ -44,5 +44,4 @@ def update(id):
     conn.commit()
     conn.close()
 connect()
-insert("Deathly Hallows", "J.K. Rowling", 2007, 694200026)
 print(view())
